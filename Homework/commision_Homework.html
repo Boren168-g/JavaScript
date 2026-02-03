@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Commision Calculator</title>
+</head>
+<body>
+    <div>
+    <div class="container mt-5">
+        <h2>Commission Calculator</h2>
+        <form>
+            Sales Amount: 
+            <input type="number" id="salesAmount" name="salesAmount" placeholder="Enter sales amount" class="form-control"><br><br>
+            <button type="button" class="btn btn-primary" onclick="calculateCommission(parseFloat(document.getElementById('salesAmount').value))">Calculate Commission</button>
+        </form>
+        <p id="demo"></p>
+    </div>
+    <script>
+        function calculateCommission(salesAmount){
+            let commissionRate = 0;
+            if(salesAmount < 1500000 ){
+                commissionRate = 1/100;
+            } else if(salesAmount >= 1500000 && salesAmount < 3000000){
+                commissionRate = 3/100;
+            } else if(salesAmount >= 3000000 && salesAmount < 6000000) {
+                commissionRate = 5/100;
+            } else if(salesAmount >= 6000000) {
+                commissionRate = 10/100;
+            }
+            let commission = salesAmount * commissionRate;
+            document.getElementById("demo").innerHTML = "Commission: $" + commission;
+        }
+    </script>
+</body>
+</html>

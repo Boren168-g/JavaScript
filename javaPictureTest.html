@@ -5,15 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Picture</title>
     <script>
-        function changePicture(imageID, ImageName){
-            document.getElementById(imageID).src = ImageName+".jpg";
+        function changePicture(image){
+            document.getElementById("myImage").src = image + ".jpg";
+        }
+        function changeBorder(borderSize){
+            document.getElementById("myImage").style.border=borderSize + "px solid blue";
+        }
+        function changeOcility(opacityValue){
+            document.getElementById("myImage").style.opacity=opacityValue;
         }
     </script>
 </head>
+<style>
+    .image-container{
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+    .pictures{
+        display: flex;
+        justify-content: center;
+    }
+    .borders{
+        display: flex;
+        justify-content: center;
+    }
+    a{
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 20px;
+        margin: 10px;
+        text-align: center;
+        background-color: lightgray;
+        padding: 5px;
+        border-radius: 5px
+    }
+    .Opacity{
+        display: flex;
+        justify-content: center;
+    }
+</style>
 <body>
-    <img id="myImage" src="image1.jpg" alt="image1">
-    <button onclick="changePicture('myImage', 'image2')">Change Picture</button>
-    <img id="myImage2" src="image2.jpg" alt="image2">
-    <button onclick="changePicture('myImage2', 'image1')">Change Picture</button>
+    <div class="image-container">
+        <img id="myImage" src="image1.jpg" alt="My Image" width="500" height="300">
+    </div>
+    <div class="pictures">
+        <a onclick="changePicture('image1')">|Picture1|</a>
+        <a onclick="changePicture('image2')">|Picture2|</a>
+        <a onclick="changePicture('image3')">|Picture3|</a>
+    </div>
+    <div>
+        <div class="borders">
+            <a onclick="changeBorder(0)">|No Border|</a>
+            <a onclick="changeBorder(5)">|Border 5px|</a>
+            <a onclick="changeBorder(10)">|Border 10px|</a>
+        </div>
+    </div>
+    <div>
+        <div class="Opacity">
+            <a onclick="changeOcility(1)">|No Opacity|</a>
+            <a onclick="changeOcility(0.5)">|Opacity 50%|</a>
+            <a onclick="changeOcility(0.2)">|Opacity 20%|</a>
+        </div>
+    </div>
 </body>
 </html>
